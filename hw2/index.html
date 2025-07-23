@@ -48,7 +48,6 @@
 		-->
 
 		<h2>Overview</h2>
-		Give a high-level overview of what you implemented in this homework. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the homework.
 
 		<h2>Section I: Bezier Curves and Surfaces</h2>
 
@@ -175,7 +174,7 @@
 				  <figcaption>Flat shading, no flips</figcaption>
 				</td>
 				<td style="text-align: center;">
-				  <img src="part4/part4-3.png" width="400px"/>
+				  <img src="part4/part4-5.png" width="400px"/>
 				  <figcaption>Flat shading, with flips</figcaption>
 				</td>
 			  </tr>
@@ -189,7 +188,7 @@
 				  <figcaption>Phong shading, no flips</figcaption>
 				</td>
 				<td style="text-align: center;">
-				  <img src="part4/part4-4.png" width="400px"/>
+				  <img src="part4/part4-6.png" width="400px"/>
 				  <figcaption>Phong shading, with flips</figcaption>
 				</td>
 			  </tr>
@@ -197,10 +196,61 @@
 		</div>
 
 		<h3>Part 5: Edge split</h3>
+		To implement edge splitting, I first listed out all of the old relationships before splitting and did a boundary check. If the edge is a boundary edge, I returned without splitting. Next I 
+		created a new vertex, v4, positioned at the very middle. Then I added new halfedges, edges, and faces to maintain a valid mesh after
+		the split, and reassigned next, twin, vertex, edge, and face pointers. 
 
+
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part3/part3-1.png" width="400px"/>
+				  <figcaption>Flat shading, no flipping or splitting</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part5/part5-1.png" width="400px"/>
+				  <figcaption>Flat shading, with splitting</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part3/part3-1.png" width="400px"/>
+				  <figcaption>Flat shading, no flipping or splitting</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part5/part5-3.png" width="400px"/>
+				  <figcaption>Flat shading, with flipping and splitting</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
 
 		<h3>Part 6: Loop subdivision for mesh upsampling</h3>
-\
+		To implement loop subdivision, I first computed new positions for the old and new vertices that would be created at edge midpoints. Then I split
+		every edge in the mesh once to create new vertices at the midpoints, and flipped all the new edges connecting old and new vertices. 
+		After subdivision, I updated the position of each vertex in the new mesh, which smooths the geometry based on the weighted averages from the 
+		original positions. 
+
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="part6/part6-1.png" width="400px"/>
+				  <figcaption>Before loop subdivision</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="part6/part6-2.png" width="400px"/>
+				  <figcaption>After subdividing once</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
+
 		<h2>(Optional) Section III: Potential Extra Credit - Art Competition: Model something Creative</h2>
 
 		</div>
